@@ -1,0 +1,1 @@
+function s(e){if(!e)return"";const n=new Date(e);if(isNaN(n.getTime()))return e;const i=new Date().getTime()-n.getTime(),t=Math.floor(i/6e4);if(t<1)return"刚刚";if(t<60)return`${t}分钟前`;const o=Math.floor(t/60);if(o<24)return`${o}小时前`;const r=Math.floor(o/24);return r<30?`${r}天前`:n.toISOString().slice(0,10)}export{s as f};

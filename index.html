@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="绳网是一个游戏、技术交流平台，发现并分享有趣的内容。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="绳网" />
+    <meta property="og:title" content="绳网" />
+    <meta property="og:description" content="绳网是一个游戏、技术交流平台" />
+    <meta property="og:image" content="/images/zzzicon_200x200.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preload" as="image" href="/images/main.avif" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/loading.gif" fetchpriority="high" />
+    <link rel="preload" as="style" href="/fonts/fonts.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <title>绳网</title>
+    <style>
+      #spa-loading-screen {
+        position: fixed;
+        inset: 0;
+        box-sizing: border-box;
+        z-index: 9999;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        background: #fff;
+        padding: 24px;
+      }
+      #spa-loading-screen img {
+        width: 300px;
+        max-width: 100%;
+        height: auto;
+      }
+      @media (max-width: 768px) {
+        #spa-loading-screen {
+          padding: 16px;
+        }
+        #spa-loading-screen img {
+          max-width: min(85vw, 530px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="spa-loading-screen">
+      <img src="/images/loading.gif" alt="加载中" fetchpriority="high" />
+    </div>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+async function*m(i,e={}){const t={Accept:"text/event-stream",...e.headers||{}};e.token&&(t.token=e.token);let c;e.body!=null&&(typeof e.body=="string"?c=e.body:(t["Content-Type"]=t["Content-Type"]||"application/json",c=JSON.stringify(e.body)));const r=await fetch(i,{method:e.method||"GET",headers:t,body:c,signal:e.signal});if(!r.ok){const s=await r.text().catch(()=>""),o=new Error(`SSE HTTP ${r.status}: ${s.slice(0,200)||r.statusText}`);throw o.status=r.status,o.body=s,o}if(!r.body)throw new Error("SSE response has no body");const d=r.body.getReader(),n=new TextDecoder("utf-8");let a="";try{for(;;){const{value:s,done:o}=await d.read();if(o)break;a+=n.decode(s,{stream:!0});let f;for(;(f=h(a))>=0;){const y=a.slice(0,f);a=a.slice(f).replace(/^(\r?\n){2}/,"");const l=u(y);l&&(yield l)}}if(a.trim()){const s=u(a);s&&(yield s)}}finally{try{d.releaseLock()}catch{}}}function h(i){const e=i.indexOf(`
+
+`),t=i.indexOf(`\r
+\r
+`);return e<0&&t<0?-1:e<0?t:t<0?e:Math.min(e,t)}function u(i){let e="message";const t=[];for(const d of i.split(/\r?\n/)){const n=d.trimEnd();!n||n.startsWith(":")||(n.startsWith("event:")?e=n.slice(6).trim():n.startsWith("data:")&&t.push(n.slice(5).trimStart()))}if(t.length===0)return null;const c=t.join(`
+`);let r;try{r=JSON.parse(c)}catch{r=c}return{type:e,data:r}}export{m as f};

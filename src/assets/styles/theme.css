@@ -1,0 +1,118 @@
+:root {
+  --ik-bg: #0a0a0a;
+  --ik-bg-elevated: #1a1a1a;
+  --ik-bg-card: #222222;
+  --ik-text: #e8e8e8;
+  --ik-muted: #9a9a9a;
+  --ik-primary: #d7ff00;
+  --ik-accent: #00e5ff;
+  --ik-danger: #ff4d4f;
+
+  --ik-cursor-default: url("/cursors/正常选择.png") 2 1, auto;
+  --ik-cursor-help: url("/cursors/帮助选择.png") 0 0, help;
+  --ik-cursor-not-allowed: url("/cursors/不可用.png") 16 14, not-allowed;
+  --ik-cursor-progress: url("/cursors/后台加载.png") 2 1, progress;
+  --ik-cursor-cell: url("/cursors/候选.png") 16 4, cell;
+  --ik-cursor-crosshair: url("/cursors/精确选择.png") 16 16, crosshair;
+  --ik-cursor-pointer: url("/cursors/链接选择.png") 14 3, pointer;
+  --ik-cursor-wait: url("/cursors/忙.png") 2 1, wait;
+  --ik-cursor-text: url("/cursors/文本选择.png") 16 16, text;
+  --ik-cursor-move: url("/cursors/移动.png") 16 16, move;
+
+  --ik-discussion-card-radius: 24px 24px 0 24px;
+  --ik-discussion-card-inner-radius: 20px 20px 0 20px;
+  --ik-discussion-card-padding: 4px;
+  --ik-discussion-card-body-gap: 8px;
+  --ik-discussion-card-body-padding: 0 8px 12px;
+  --ik-discussion-card-outer-bg: #000;
+  --ik-discussion-card-inner-bg: #222;
+  --ik-discussion-card-cover-bg: #151515;
+  --ik-discussion-card-placeholder-bg: #2a2a2a;
+  --ik-discussion-card-divider-bg: #3a3a3a;
+  --ik-discussion-card-hover-bg: var(--ik-primary);
+  --ik-discussion-card-cover-aspect-ratio: 1.576;
+  --ik-discussion-card-views-font-size: 14px;
+  --ik-discussion-card-views-icon-size: 22px;
+  --ik-discussion-card-avatar-size: 54px;
+  --ik-discussion-card-avatar-padding: 2px;
+  --ik-discussion-card-avatar-offset: -28px;
+  --ik-discussion-card-avatar-bg: #1b1b1b;
+  --ik-discussion-card-author-offset: 4px;
+  --ik-discussion-card-author-block-width: calc(100% - 58px);
+  --ik-discussion-card-author-min-height: 32px;
+  --ik-discussion-card-author-padding-left: 8px;
+  --ik-discussion-card-author-name-size: 15px;
+  --ik-discussion-card-author-name-color: #fff;
+  --ik-discussion-card-title-size: 17px;
+  --ik-discussion-card-title-color: #2196f3;
+  --ik-discussion-card-title-read-color: #9e9e9e;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #app {
+  margin: 0;
+  min-height: 100%;
+  background: #000;
+  color: var(--ik-text);
+  font-family: "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  cursor: var(--ik-cursor-default);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#app {
+  position: relative;
+  isolation: isolate;
+}
+
+#app::before {
+  content: '';
+  position: fixed;
+  top: -5%;
+  left: -5%;
+  width: 115%;
+  height: 115%;
+  background: url("/images/main.avif") center top / cover no-repeat;
+  filter: brightness(0.5);
+  z-index: -1;
+  pointer-events: none;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar, #app::-webkit-scrollbar { display: none; }
+
+a { color: inherit; text-decoration: none; }
+
+a, button, summary, [role="button"], [tabindex]:not([tabindex="-1"]),
+input[type="button"], input[type="submit"], input[type="reset"],
+.z-button, .z-link, .ik-card, .ik-dialog__close {
+  cursor: var(--ik-cursor-pointer) !important;
+}
+
+input, textarea, [contenteditable="true"] {
+  cursor: var(--ik-cursor-text) !important;
+  caret-color: var(--ik-primary);
+}
+
+button:disabled, [aria-disabled="true"], .is-disabled, .z-button--disabled {
+  cursor: var(--ik-cursor-not-allowed) !important;
+}
+
+[aria-busy="true"], .is-loading, .z-button--loading {
+  cursor: var(--ik-cursor-progress) !important;
+}
+
+.z-message {
+  z-index: 9999 !important;
+  top: 90px !important;
+}
+
+.ik-empty {
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--ik-muted);
+}
+
+@media (max-width: 768px) {
+  .ik-page { padding-bottom: 64px; }
+}
