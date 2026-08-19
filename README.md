@@ -209,3 +209,6 @@ pnpm preview
 - **搜索功能**：后端暂无关键词搜索接口，`searchArticles` 已降级为文章列表分页。
 - **未实现接口**：消息编辑、置顶（pinned）等后端暂未支持，相关前端方法保留但调用会失败（代码中已注明）。
 - 存在 `package-lock.json` 与 `pnpm-lock.yaml` 两份锁文件，建议统一使用 pnpm 并仅保留 `pnpm-lock.yaml`。
+## 致谢
+- 本项目前端源码主体部分来自[KawaYiLab](https://github.com/KawaYiLab/InterKnot-Web),经过deepseek-v4-pro大模型修改以贴合本项目后端
+- 如果觉得有用,请给[后端项目](https://github.com/javvvy/InterKnot-Web)一个star,感谢支持~
